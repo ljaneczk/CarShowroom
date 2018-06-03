@@ -28,8 +28,9 @@ public class EnginePriceCalculatorTest {
             type = engineTypes[value % engineTypes.length];
             System.out.println(value + " " + capacity + " " + type);
             assertTrue(calculator.addPrice(capacity, type, value));
-            Assert.assertEquals(value, calculator.getPrice(capacity, type));
-            assertTrue(calculator.removePrice(capacity, type));
+            Assert.assertEquals(value, calculator.getPrice(capacity, type));    //Value is Properly added
+            Assert.assertEquals(value, calculator.getPrice(capacity, type));    //Value is not deleted after get
+            assertTrue(calculator.removePrice(capacity, type));                 //Value is in map
             if (value > 0)
                 assertFalse(calculator.addPrice(capacity, type, (-1) * value)); //Negative price cannot be inserted
             calculator.addPrice(capacity, type, value);
