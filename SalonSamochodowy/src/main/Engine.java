@@ -1,3 +1,5 @@
+package main;
+
 public class Engine
 {
     private Capacity capacity;

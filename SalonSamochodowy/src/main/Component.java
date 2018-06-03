@@ -1,3 +1,5 @@
+package main;
+
 public class Component {
     private int price;
     private String name;
@@ -10,7 +12,7 @@ public class Component {
     }
 
     public Component(double price, String name, String description) {
-        this.price = (int) (100 * price);
+        this.price = (int) (price);     //
         this.name = name;
         this.description = description;
     }
