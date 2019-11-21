@@ -1,10 +1,11 @@
 package main;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class EnginePriceCalculator
 {
-    private class Key {
+    private static class Key {
         Capacity capacity;
         EngineType type;
 
@@ -33,10 +34,10 @@ public class EnginePriceCalculator
     }
 
 
-    private Map <Key, Integer> priceCalculator = new HashMap<>();
+    private Map <Key, Double> priceCalculator = new HashMap<>();
 
 
-    public int getPrice(Capacity capacity, EngineType type) {
+    public double getPrice(Capacity capacity, EngineType type) {
         Key key = new Key(capacity, type);
         if (priceCalculator.containsKey(key))
             return priceCalculator.get(key);
@@ -46,14 +47,14 @@ public class EnginePriceCalculator
         }
     }
 
-    public boolean addPrice(Capacity capacity, EngineType type, int price) {
+    public boolean addPrice(Capacity capacity, EngineType type, double price) {
         Key key = new Key(capacity, type);
         if (price < 0) {
-            System.out.println("Price should not be less than 0.");
+            System.err.println("Error while inserting " + price + " for " + capacity + " " + type + ": Price should not be less than 0.");
             return false;
         }
         if (priceCalculator.containsKey(key))
-            System.out.println("There was price " + priceCalculator.get(key) + " with " + key);
+            System.err.println("There was price " + priceCalculator.get(key) + " with " + key + " - value will be updated.");
         priceCalculator.put(key, price);
         return true;
     }
@@ -65,7 +66,7 @@ public class EnginePriceCalculator
             return true;
         }
         else {
-            System.err.println("There is no price with " + key);
+            System.err.println("There is no price with key = " + key + ".");
             return false;
         }
     }

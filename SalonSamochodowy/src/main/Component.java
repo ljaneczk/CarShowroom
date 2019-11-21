@@ -1,7 +1,7 @@
 package main;
 
 public class Component {
-    private int price;
+    private double price;
     private String name;
     private String description;
 
@@ -12,12 +12,12 @@ public class Component {
     }
 
     public Component(double price, String name, String description) {
-        this.price = (int) (price);     //
+        this.price = price;
         this.name = name;
         this.description = description;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

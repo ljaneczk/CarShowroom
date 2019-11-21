@@ -2,17 +2,23 @@ package main;
 
 public class Model
 {
-    private int price;
+    private double price;
     private Type type;
     private String description;
 
-    Model(int price, Type type, String description) {
+    Model(double price, Type type, String description) {
         this.price = price;
         this.type = type;
         this.description = description;
     }
 
-    public int getPrice() {
+    Model(int price, Type type, String description) {
+        this.price = (double) price;
+        this.type = type;
+        this.description = description;
+    }
+
+    public double getPrice() {
         return price;
     }
 
